@@ -1,12 +1,16 @@
 from itertools import cycle
 
 from streamparse import Spout
-import time
 
 
 from sqlalchemy import create_engine, MetaData, Table
 from sqlalchemy.sql import select
 import json
+import time
+
+MYSQL_USERNAME = 'root'
+MYSQL_PASSWORD = 'root'
+DB_NAME = 'storm'
 
 metadata = MetaData()
 
