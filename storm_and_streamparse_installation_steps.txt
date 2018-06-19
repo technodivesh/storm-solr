@@ -1,0 +1,104 @@
+# streamparse with apache storm
+
+Dependencies 
+
+1. JDK 7+
+2. lein -- A Clojure build tool (install from https://leiningen.org/)  
+3. Apache Storm (install from http://storm.apache.org/releases/current/Setting-up-development-environment.html)
+4. pip install streamparse
+
+Confirm the installation by below commands 
+
+	lein version
+	storm version
+
+# create a project using the command-line tool: sparse (name wordcount)
+	sparse quickstart products    
+
+
+// This will create wordcount directory with following structure
+products/
+├── config.json
+├── fabfile.py
+├── project.clj
+├── README.md
+├── src
+│   ├── bolts
+│   │   ├── __init__.py
+│   │   └── wordcount.py
+│   └── spouts
+│       ├── __init__.py
+│       └── words.py
+├── topologies
+│   └── wordcount.py
+└── virtualenvs
+    └── wordcount.txt
+
+5 directories, 10 files
+
+
+# Here are the key files it created:	
+# products/topologies/wordcount.clj
+# products/src/spouts/words.py
+# products/src/bolts/wordcount.py
+
+# wordcount is the default name change it to 'products' for topology, Spouts and Bolts
+
+# Try running your topology locally with:
+
+	cd products
+	sparse run
+
+// This will create _build and _resource dir in the wordcount directory 
+products/
+├── _build
+│   ├── classes
+│   │   └── META-INF
+│   │       └── maven
+│   │           └── wordcount
+│   │               └── wordcount
+│   │                   └── pom.properties
+│   ├── stale
+│   │   └── leiningen.core.classpath.extract-native-dependencies
+│   ├── wordcount-0.0.1-SNAPSHOT.jar
+│   └── wordcount-0.0.1-SNAPSHOT-standalone.jar
+├── config.json
+├── fabfile.py
+├── project.clj
+├── README.md
+├── _resources
+├── src
+│   ├── bolts
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   │   ├── __init__.cpython-35.pyc
+│   │   │   └── wordcount.cpython-35.pyc
+│   │   └── wordcount.py
+│   └── spouts
+│       ├── __init__.py
+│       ├── __pycache__
+│       │   ├── __init__.cpython-35.pyc
+│       │   └── words.cpython-35.pyc
+│       └── words.py
+├── topologies
+│   ├── __pycache__
+│   │   └── wordcount.cpython-35.pyc
+│   └── wordcount.py
+└── virtualenvs
+    └── wordcount.txt
+
+16 directories, 19 files
+
+
+# If error occured open wordcount/project.clj file and change Apache Storm library version to match the one you have installed.
+	dependencies  [[org.apache.storm/storm-core "1.2.1"]
+
+
+# To create own SPOUT
+	
+
+
+
+
+
+
