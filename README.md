@@ -11,6 +11,7 @@ Storm is a distributed realtime computation system. Similar to how Hadoop provid
 
 ## Installing 
 Solr - [Installation Steps](https://github.com/technodivesh/storm-solr/blob/master/solr_installation_steps.txt)
+
 Storm - [Installation Steps](https://github.com/technodivesh/storm-solr/blob/master/storm_and_streamparse_installation_steps.txt)
 
 
