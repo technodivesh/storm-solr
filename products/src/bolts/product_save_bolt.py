@@ -33,7 +33,7 @@ class ProductBolt(Bolt):
         # To print the document
         self.logger.info(docs)
         # To index the document in apache solr
-        # requests.post(url=url, data=docs, headers=header)
+        requests.post(url=url, data=docs, headers=header)
 
         # self.logger.info(res.status_code)        
 
