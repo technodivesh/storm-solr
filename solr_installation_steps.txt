@@ -1,0 +1,73 @@
+# To run a simple for application for Storm and Solr integration using python wrappers (streamparse)
+
+Objective:
+Indexing of Data in Apache-Solr for faster searching, the data is the stream from Apache-Storm.
+
+
+# Steps to Install Apache Solr 
+
+1. Verify Java (Apache Solr 7 required Java 8 or greater to run)
+	java -version
+
+	sample output:
+	java version "1.8.0_161"
+	Java(TM) SE Runtime Environment (build 8.0.5.11 - pxa6480sr5fp11-20180326_01(SR5 FP11))
+	IBM J9 VM (build 2.9, JRE 1.8.0 Linux amd64-64 Compressed References 20180309_380776 (JIT enabled, AOT enabled)
+	OpenJ9   - 49fcaf39
+	OMR      - 5cbbadf
+	IBM      - 4453dac)
+	JCL - 20180319_01 based on Oracle jdk8u161-b12
+
+
+
+2. Install Apache Solr (Now download the required Solr version from its official site ) or
+
+	wget http://redrockdigimark.com/apachemirror/lucene/solr/7.3.1/solr-7.3.1-src.tgz 
+	tar -xzvf solr-7.3.1-src.tgz
+
+	cd solr-7.3.1
+
+3. Start and Stop Solr services
+	bin/solr start
+	bin/solr stop
+	bin/solr status
+
+4. Create First Solr Collection / Core
+
+	bin/solr create -c products
+
+	(output : Created new core 'products')
+	
+5. Access Solr Admin Panel
+	http://localhost:8983/solr
+
+6. Now you can add fields and its type from 'Add Field' in Schema on Solr Apache Panel OR
+	curl http://localhost:8983/solr/films/schema -X POST -H 'Content-type:application/json' --data-binary '{
+	    "add-field" : {
+		"name":"name",
+		"type":"text_general",
+		"multiValued":false,
+		"stored":true
+	    },
+	    "add-field" : {
+		"name":"initial_release_date",
+		"type":"pdate",
+		"stored":true
+	    }
+	}'
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
